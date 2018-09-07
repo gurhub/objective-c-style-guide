@@ -1,6 +1,6 @@
-# Digiturk - beIN Media Group Objective-C Style Guide
+# My Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS teams at Digiturk - beIN Media Group. We welcome your feedback in [issues](https://github.com/gurhub/objective-c-style-guide/issues) and [pull requests](https://github.com/gurhub/objective-c-style-guide/pulls).
+This style guide outlines the coding conventions of our iOS team. We welcome your feedback in [issues](https://github.com/gurhub/objective-c-style-guide/issues) and [pull requests](https://github.com/gurhub/objective-c-style-guide/pulls).
 
 Thanks to all of [our contributors](https://github.com/gurhub/objective-c-style-guide/graphs/contributors).
 
@@ -368,7 +368,7 @@ Constants are RECOMMENDED over in-line string literals or numbers, as they allow
 **For example:**
 
 ```objc
-static NSString * const BMGAboutViewControllerCompanyName = @"Digiturk - beIN Media Group Company";
+static NSString * const BMGAboutViewControllerCompanyName = @"My Cool Company";
 
 static const CGFloat BMGImageThumbnailHeight = 50.0;
 ```
@@ -376,7 +376,7 @@ static const CGFloat BMGImageThumbnailHeight = 50.0;
 **Not:**
 
 ```objc
-#define CompanyName @"Digiturk - beIN Media Group Company"
+#define CompanyName @"My Cool Company"
 
 #define thumbnailHeight 2
 ```
@@ -543,7 +543,7 @@ One case where this is less obvious is property accessors. These can be
 overridden just like any other selector. Whenever practical, directly assign to
 and release ivars in initializers and `-dealloc`, rather than rely on accessors.
 
-```objectivec 
+```objectivec
 // GOOD:
 
 - (instancetype)init {
@@ -562,7 +562,7 @@ Beware of factoring common initialization code into helper methods:
 -   When editing a helper method, it may not be obvious that the code is being
     run from an initializer.
 
-```objectivec 
+```objectivec
 // AVOID:
 
 - (instancetype)init {
@@ -575,7 +575,7 @@ Beware of factoring common initialization code into helper methods:
 }
 ```
 
-```objectivec 
+```objectivec
 // GOOD:
 
 - (void)dealloc {
@@ -583,7 +583,7 @@ Beware of factoring common initialization code into helper methods:
 }
 ```
 
-```objectivec 
+```objectivec
 // AVOID:
 
 - (void)dealloc {
@@ -603,11 +603,11 @@ Use [our custom .clang-format](https://github.com/gurhub/mgyky-clang-format) fil
 
 ### How to use with XCode8+
 
-* download latest release of XcodeClangFormat plug-in from https://github.com/mapbox/XcodeClangFormat. 
+* download latest release of XcodeClangFormat plug-in from https://github.com/mapbox/XcodeClangFormat.
 * put your .clang-format file in root project directory.
 * open XcodeClangFormat.app and show the custom path
 * add your keyboard shortcut: open System Preferences, click on Keyboard, and switch to the Shortcuts tab. In the list on the left, select App Shortcuts, then hit the + button. Select Xcode, enter Format Source Code, and define a shortcut of your liking.
-* Then, before committing your code to git use your shortcut! 
+* Then, before committing your code to git use your shortcut!
 
 
 # Other Objective-C Style Guides
