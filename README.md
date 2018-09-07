@@ -47,13 +47,13 @@ Dot notation is RECOMMENDED over bracket notation for getting and setting proper
 
 **For example:**
 ```objc
-view.backgroundColor = UIColor.orangeColor;
+view.backgroundColor = UIColor.blueColor;
 UIApplication.sharedApplication.delegate;
 ```
 
 **Not:**
 ```objc
-[view setBackgroundColor:[UIColor orangeColor]];
+[view setBackgroundColor:[UIColor blueColor]];
 [UIApplication sharedApplication].delegate;
 ```
 
@@ -244,6 +244,14 @@ Instance variables MUST be camel-case with the leading word being lowercase, and
 ```objc
 id varnm;
 ```
+
+You've probably noticed that the general principle here is to spell things out to avoid confusion. However, there are times where acronyms are so well-known that spelling them out either doesn't help or can actually create confusion.
+
+Here is an excerpt of the complete list of acceptable abbreviations:
+
+     int     max     min     TIFF    HTTP    URL     HTML     PDF
+     rect    temp    info    JPG     FTP     RTF     XML      ASCII
+
 
 ### Categories
 
@@ -529,12 +537,11 @@ Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
 
-* [Google](https://google.github.io/styleguide/objcguide.xml)
-* [GitHub](https://github.com/github/objective-c-style-guide)
-* [Adium](https://trac.adium.im/wiki/CodingStyle)
-* [Sam Soffes](https://gist.github.com/soffes/812796)
+* [Google](https://github.com/google/styleguide/blob/gh-pages/objcguide.md)
+* [Apple's Coding Guidelines for Cocoa](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
+* [Ray Wenderlich](https://github.com/raywenderlich/objective-c-style-guide)
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
 * [Luke Redpath](http://lukeredpath.co.uk/blog/2011/06/28/my-objective-c-style-guide/)
 * [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
 * [Wikimedia](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/ObjectiveCStyleGuide)
-* [Ray Wenderlich](https://github.com/raywenderlich/objective-c-style-guide)
+
