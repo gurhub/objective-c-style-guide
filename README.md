@@ -597,6 +597,19 @@ The physical files SHOULD be kept in sync with the Xcode project files in order 
 
 Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
+# Formatting Your Code with a Shortcut
+
+Use [our custom .clang-format](https://github.com/gurhub/mgyky-clang-format) file for Objective-C projects
+
+### How to use with XCode8+
+
+* download latest release of XcodeClangFormat plug-in from https://github.com/mapbox/XcodeClangFormat. 
+* put your .clang-format file in root project directory.
+* open XcodeClangFormat.app and show the custom path
+* add your keyboard shortcut: open System Preferences, click on Keyboard, and switch to the Shortcuts tab. In the list on the left, select App Shortcuts, then hit the + button. Select Xcode, enter Format Source Code, and define a shortcut of your liking.
+* Then, before committing your code to git use your shortcut! 
+
+
 # Other Objective-C Style Guides
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
