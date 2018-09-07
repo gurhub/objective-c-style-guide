@@ -597,7 +597,7 @@ The physical files SHOULD be kept in sync with the Xcode project files in order 
 
 Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
-# Formatting Your Code with a Shortcut
+# Auto Formatting Your Code
 
 Use [our custom .clang-format](https://github.com/gurhub/mgyky-clang-format) file for Objective-C projects
 
