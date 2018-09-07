@@ -527,6 +527,70 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
 
+### Avoid Messaging the Current Object Within Initializers and `-dealloc`
+
+Code in initializers and `-dealloc` should avoid invoking instance methods.
+
+Superclass initialization completes before subclass initialization. Until all
+classes have had a chance to initialize their instance state any method
+invocation on self may lead to a subclass operating on uninitialized instance
+state.
+
+A similar issue exists for `-dealloc`, where a method invocation may cause a
+class to operate on state that has been deallocated.
+
+One case where this is less obvious is property accessors. These can be
+overridden just like any other selector. Whenever practical, directly assign to
+and release ivars in initializers and `-dealloc`, rather than rely on accessors.
+
+```objectivec 
+// GOOD:
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    _bar = 23;  // GOOD.
+  }
+  return self;
+}
+```
+
+Beware of factoring common initialization code into helper methods:
+
+-   Methods can be overridden in subclasses, either deliberately, or
+    accidentally due to naming collisions.
+-   When editing a helper method, it may not be obvious that the code is being
+    run from an initializer.
+
+```objectivec 
+// AVOID:
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    self.bar = 23;  // AVOID.
+    [self sharedMethod];  // AVOID. Fragile to subclassing or future extension.
+  }
+  return self;
+}
+```
+
+```objectivec 
+// GOOD:
+
+- (void)dealloc {
+  [_notifier removeObserver:self];  // GOOD.
+}
+```
+
+```objectivec 
+// AVOID:
+
+- (void)dealloc {
+  [self removeNotifications];  // AVOID.
+}
+```
+
 ## Xcode project
 
 The physical files SHOULD be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created SHOULD be reflected by folders in the filesystem. Code SHOULD be grouped not only by type, but also by feature for greater clarity.
@@ -545,3 +609,9 @@ If ours doesn’t fit your tastes, have a look at some other style guides:
 * [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
 * [Wikimedia](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/ObjectiveCStyleGuide)
 
+
+# Must Read
+
+Here are must read books about coding:
+
+* [The Clean Code — Robert C. Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=cm_cr_arp_d_product_top?ie=UTF8)
