@@ -614,6 +614,7 @@ Use [our custom .clang-format](https://github.com/gurhub/mgyky-clang-format) fil
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
 
+* [Apple's Objective-C Conventions](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html)
 * [Apple's Coding Guidelines for Cocoa](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Google](https://github.com/google/styleguide/blob/gh-pages/objcguide.md)
 * [Ray Wenderlich](https://github.com/raywenderlich/objective-c-style-guide)
